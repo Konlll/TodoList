@@ -22,7 +22,7 @@ class Todo{
 }
 
 // Get Todos
-const getTodos = (id) => {
+const getTodo = (id) => {
     let todos = document.querySelectorAll(".todo")
     todosArray = []
     for(let i = 0; i < todos.length; i++){
@@ -52,13 +52,13 @@ document.getElementById('save').addEventListener('click', (e) => save(e))
 
 // Delete Method
 const remove = (id) => {
-    todo = getTodos(id)
+    todo = getTodo(id)
     todo.remove()
 }
 
 // Mark As Ready Method
 const ready = (id) => {
-    todo = getTodos(id)
+    todo = getTodo(id)
     if(todo.className == "todo ready"){
         alert("The task is already done!")
     }else{
@@ -68,7 +68,7 @@ const ready = (id) => {
 
 // Mark As Unready Method
 const unready = (id) => {
-    todo = getTodos(id)
+    todo = getTodo(id)
     if(todo.className == "todo ready"){
         todo.classList.remove("ready")
     }else{
