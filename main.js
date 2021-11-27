@@ -1,25 +1,8 @@
 // Todo Class
 class Todo{
-    constructor(title, isReady, todoId){
+    constructor(title, todoId){
         this.title = title
-        this.isReady = isReady
         this.todoId = todoId
-    }
-
-    getTitle(){
-        return this.title
-    }
-
-    getReady(){
-        return this.isReady
-    }
-
-    getTodoId(){
-        return this.todoId
-    }
-
-    setReady(x){
-        this.isReady = x
     }
 
     appendTemplate(){
@@ -48,7 +31,7 @@ const save = (e) => {
         return
     }
     // Otherwise create new Todo and append it to our HTML
-    todo = new Todo(todoValue, false, Math.floor(Math.random() * 100000000))
+    todo = new Todo(todoValue, Math.floor(Math.random() * 100000000))
     todosDiv = document.querySelector(".todos")
     todosDiv.innerHTML += todo.appendTemplate()
     document.querySelector(".form-input").value = ""
