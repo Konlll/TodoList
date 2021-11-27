@@ -31,7 +31,7 @@ class Todo{
                 <div class="todo-events">
                     <i class="fas fa-check" title="Mark as ready"></i>
                     <i class="fas fa-times" title="Mark as unready"></i>
-                    <i class="fas fa-trash" title="Delete todo"></i>
+                    <i class="fas fa-trash" title="Delete todo" onClick="remove(${this.todoId})"></i>
                 </div>
             </div>
         `
@@ -55,3 +55,13 @@ const save = (e) => {
 // Save Event Listener
 const saveButton = document.getElementById('save')
 saveButton.addEventListener('click', (e) => save(e))
+
+// Delete Event
+const remove = (id) => {
+    let todos = document.querySelectorAll(".todo")
+    for(let i = 0; i < todos.length; i++){
+        if(todos[i].id == id){
+            todos[i].remove()
+        }
+    }
+}
