@@ -21,6 +21,17 @@ class Todo{
     }
 }
 
+// Get Todos
+const getTodos = (id) => {
+    let todos = document.querySelectorAll(".todo")
+    todosArray = []
+    for(let i = 0; i < todos.length; i++){
+        if(todos[i].id == id){
+            return todos[i]
+        }
+    }
+}
+
 // Save Method
 const save = (e) => {
     e.preventDefault()
@@ -37,43 +48,30 @@ const save = (e) => {
     document.querySelector(".form-input").value = ""
 }
 // Save Event Listener
-const saveButton = document.getElementById('save')
-saveButton.addEventListener('click', (e) => save(e))
+document.getElementById('save').addEventListener('click', (e) => save(e))
 
 // Delete Method
 const remove = (id) => {
-    let todos = document.querySelectorAll(".todo")
-    for(let i = 0; i < todos.length; i++){
-        if(todos[i].id == id){
-            todos[i].remove()
-        }
-    }
+    todo = getTodos(id)
+    todo.remove()
 }
 
 // Mark As Ready Method
 const ready = (id) => {
-    let todos = document.querySelectorAll(".todo")
-    for(let i = 0; i < todos.length; i++){
-        if(todos[i].id == id){
-            if(todos[i].className == "todo ready"){
-                alert("The task is already done!")
-            }else{
-                todos[i].classList.add("ready")
-            }
-        }
+    todo = getTodos(id)
+    if(todo.className == "todo ready"){
+        alert("The task is already done!")
+    }else{
+        todo.classList.add("ready")
     }
 }
 
 // Mark As Unready Method
 const unready = (id) => {
-    let todos = document.querySelectorAll(".todo")
-    for(let i = 0; i < todos.length; i++){
-        if(todos[i].id == id){
-            if(todos[i].className == "todo ready"){
-                todos[i].classList.remove("ready")
-            }else{
-                alert("The task isn't done yet!")
-            }
-        }
+    todo = getTodos(id)
+    if(todo.className == "todo ready"){
+        todo.classList.remove("ready")
+    }else{
+        alert("The task isn't done yet!")
     }
 }
