@@ -51,6 +51,7 @@ const save = (e) => {
     todo = new Todo(todoValue, false, Math.floor(Math.random() * 100000000))
     todosDiv = document.querySelector(".todos")
     todosDiv.innerHTML += todo.appendTemplate()
+    document.querySelector(".form-input").value = ""
 }
 // Save Event Listener
 const saveButton = document.getElementById('save')
