@@ -13,7 +13,7 @@ class Todo{
                 </div>
                 <div class="todo-events">
                     <i class="fas fa-check" title="Mark as ready" onClick="ready(${this.todoId})"></i>
-                    <i class="fas fa-times" title="Mark as unready"></i>
+                    <i class="fas fa-times" title="Mark as unready" onClick="unready(${this.todoId})"></i>
                     <i class="fas fa-trash" title="Delete todo" onClick="remove(${this.todoId})"></i>
                 </div>
             </div>
@@ -59,6 +59,20 @@ const ready = (id) => {
                 alert("The task is already done!")
             }else{
                 todos[i].classList.add("ready")
+            }
+        }
+    }
+}
+
+// Mark As Unready Method
+const unready = (id) => {
+    let todos = document.querySelectorAll(".todo")
+    for(let i = 0; i < todos.length; i++){
+        if(todos[i].id == id){
+            if(todos[i].className == "todo ready"){
+                todos[i].classList.remove("ready")
+            }else{
+                alert("The task isn't done yet!")
             }
         }
     }
