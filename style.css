@@ -110,9 +110,8 @@ form{
 }
 
 .todo.ready{
-    background-color: rgb(2, 155, 2);
+    background-color: rgba(2, 155, 2, 0.5);
     color: #fff;
-    border: 1px solid #fff;
 }
 .todo.ready .todo-events i.fa-check{
     color: #fff;

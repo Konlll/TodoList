@@ -29,7 +29,7 @@ class Todo{
                     <h2>${this.title}</h2>
                 </div>
                 <div class="todo-events">
-                    <i class="fas fa-check" title="Mark as ready"></i>
+                    <i class="fas fa-check" title="Mark as ready" onClick="ready(${this.todoId})"></i>
                     <i class="fas fa-times" title="Mark as unready"></i>
                     <i class="fas fa-trash" title="Delete todo" onClick="remove(${this.todoId})"></i>
                 </div>
@@ -63,6 +63,20 @@ const remove = (id) => {
     for(let i = 0; i < todos.length; i++){
         if(todos[i].id == id){
             todos[i].remove()
+        }
+    }
+}
+
+// Mark As Ready Method
+const ready = (id) => {
+    let todos = document.querySelectorAll(".todo")
+    for(let i = 0; i < todos.length; i++){
+        if(todos[i].id == id){
+            if(todos[i].className == "todo ready"){
+                alert("The task is already done!")
+            }else{
+                todos[i].classList.add("ready")
+            }
         }
     }
 }
