@@ -38,7 +38,7 @@ class Todo{
     }
 }
 
-// Save Event
+// Save Method
 const save = (e) => {
     e.preventDefault()
     // Get Input Value
@@ -56,7 +56,7 @@ const save = (e) => {
 const saveButton = document.getElementById('save')
 saveButton.addEventListener('click', (e) => save(e))
 
-// Delete Event
+// Delete Method
 const remove = (id) => {
     let todos = document.querySelectorAll(".todo")
     for(let i = 0; i < todos.length; i++){
