@@ -24,7 +24,6 @@ class Todo{
 // Get Todos
 const getTodo = (id) => {
     let todos = document.querySelectorAll(".todo")
-    todosArray = []
     for(let i = 0; i < todos.length; i++){
         if(todos[i].id == id){
             return todos[i]
